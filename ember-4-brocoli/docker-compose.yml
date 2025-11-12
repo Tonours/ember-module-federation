@@ -1,0 +1,124 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-module_federation}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-module_federation}?schema=public
+      JWT_SECRET: ${JWT_SECRET}
+      CORS_ORIGIN: ${CORS_ORIGIN:-*}
+      PORT: 3333
+      SERVICE_FQDN_API_3333: /api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3333/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+    networks:
+      - app_network
+      - coolify
+
+  mf-profile:
+    build:
+      context: .
+      dockerfile: apps/mf-profile/Dockerfile
+    restart: unless-stopped
+    environment:
+      SERVICE_FQDN_PROFILE_80: /mf-profile
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app_network
+      - coolify
+
+  mf-blog-article:
+    build:
+      context: .
+      dockerfile: apps/mf-blog-article/Dockerfile
+      # No args needed - uses relative URL defaults from Dockerfile
+    restart: unless-stopped
+    environment:
+      SERVICE_FQDN_BLOG_80: /mf-blog
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app_network
+      - coolify
+
+  ember:
+    build:
+      context: .
+      dockerfile: apps/ember/Dockerfile
+      # No args needed - uses relative URL defaults from Dockerfile
+    restart: unless-stopped
+    environment:
+      SERVICE_FQDN_EMBER_80: /ember
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app_network
+      - coolify
+
+  react-shell:
+    build:
+      context: .
+      dockerfile: apps/react-shell/Dockerfile
+      # No args needed - all URLs use relative paths or window.location.origin
+    restart: unless-stopped
+    environment:
+      SERVICE_FQDN_SHELL_80: /
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      - mf-profile
+      - mf-blog-article
+      - ember
+    networks:
+      - app_network
+      - coolify
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  app_network:
+    driver: bridge
+  coolify:
+    external: true

@@ -1,0 +1,53 @@
+{
+  "name": "ember-module-federation-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Module Federation POC with React Shell, Ember 4, and React MFEs",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "nx run-many --target=serve --projects=api,react-shell --parallel",
+    "dev:all": "nx run-many --target=serve --all --parallel",
+    "dev:shell": "nx serve react-shell",
+    "dev:profile": "nx serve react-shell --devRemotes=mf-profile",
+    "dev:blog": "nx serve react-shell --devRemotes=mf-blog-article",
+    "dev:ember": "nx serve ember",
+    "dev:api": "nx serve api",
+    "build": "nx run-many --target=build --all",
+    "build:shell": "nx build react-shell",
+    "build:profile": "nx build mf-profile",
+    "build:blog": "nx build mf-blog-article",
+    "build:remotes": "nx run-many --target=build --projects=mf-profile,mf-blog-article",
+    "build:ember": "nx build ember",
+    "build:api": "nx build api",
+    "build:affected": "nx affected --target=build",
+    "test": "nx run-many --target=test --all",
+    "test:affected": "nx affected --target=test",
+    "lint": "nx run-many --target=lint --all",
+    "lint:affected": "nx affected --target=lint",
+    "graph": "nx graph",
+    "prisma:generate": "nx prisma:generate api",
+    "prisma:push": "nx prisma:push api",
+    "prisma:seed": "nx prisma:seed api",
+    "prisma:studio": "nx prisma:studio api"
+  },
+  "devDependencies": {
+    "@nx/js": "^22.0.2",
+    "@nx/node": "^22.0.2",
+    "@nx/webpack": "^22.0.2",
+    "@types/node": "^20.11.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.56.0",
+    "nx": "^22.0.2",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  }
+}

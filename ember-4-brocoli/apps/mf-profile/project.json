@@ -1,0 +1,46 @@
+{
+  "name": "mf-profile",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mf-profile/src",
+  "projectType": "application",
+  "tags": ["type:remote", "platform:web"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/mf-profile",
+        "webpackConfig": "apps/mf-profile/webpack.config.js",
+        "index": "apps/mf-profile/index.html",
+        "main": "apps/mf-profile/src/main.tsx",
+        "tsConfig": "apps/mf-profile/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "mf-profile:build",
+        "port": 3001
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "mf-profile:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mf-profile/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

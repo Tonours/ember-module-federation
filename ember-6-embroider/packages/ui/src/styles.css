@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+
+/* Scan all apps and packages for Tailwind classes */
+/* This ensures all classes used across MFE are included */
+@source "../../apps/*/src/**/*.{js,jsx,ts,tsx}";
+@source "../**/*.{js,jsx,ts,tsx}";
+
+button {
+  cursor: pointer;
+}

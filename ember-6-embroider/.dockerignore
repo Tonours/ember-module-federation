@@ -1,0 +1,41 @@
+# Dependencies
+node_modules
+**/node_modules
+npm-debug.log*
+
+# Build outputs
+dist
+**/dist
+build
+**/build
+.next
+.cache
+
+# Environment files
+.env
+.env.local
+.env*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Git
+.git
+.gitignore
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+*.log
+.npm
+.eslintcache

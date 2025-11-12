@@ -1,0 +1,57 @@
+<div class="blog-container">
+  <header class="blog-header">
+    {{#if this.model.tag}}
+      <div class="tag-header-badge">
+        {{this.model.tag.name}}
+      </div>
+      <h1>Articles - {{this.model.tag.name}}</h1>
+      <p>Filtrage par tag via Ember 4 (iframe + Ember Router)</p>
+    {{else}}
+      <h1>Tag introuvable</h1>
+    {{/if}}
+  </header>
+
+  <div class="blog-actions">
+    <button type="button" class="back-link" {{on "click" this.navigateToBlog}}>
+      ← Retour à tous les articles
+    </button>
+  </div>
+
+  <div class="articles-grid">
+    {{#each this.model.articles as |post|}}
+      <article class="article-card" {{on "click" (fn this.navigateToArticle post.id)}}>
+        <div class="article-date">
+          {{post.formattedDate}}
+        </div>
+        <h2 class="article-title">{{post.title}}</h2>
+        {{#if post.category}}
+          <div class="article-meta">
+            <LinkTo @route="blog.category" @model={{post.category.slug}} class="badge-category-link">
+              <span
+                class="badge-category"
+                style="background-color: {{post.category.color}};"
+              >
+                {{post.category.name}}
+              </span>
+            </LinkTo>
+            {{#each post.tags as |tag|}}
+              <LinkTo @route="blog.tag" @model={{tag.slug}} class="badge-tag-link">
+                <span class="badge-tag">{{tag.name}}</span>
+              </LinkTo>
+            {{/each}}
+          </div>
+        {{/if}}
+        <p class="article-excerpt">
+          {{post.excerpt}}
+        </p>
+        <div class="article-footer">
+          <span class="read-more">Lire l'article →</span>
+        </div>
+      </article>
+    {{else}}
+      <div class="no-articles">
+        <p>Aucun article disponible pour ce tag.</p>
+      </div>
+    {{/each}}
+  </div>
+</div>

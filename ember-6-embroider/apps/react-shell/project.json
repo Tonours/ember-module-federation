@@ -1,0 +1,46 @@
+{
+  "name": "react-shell",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-shell/src",
+  "projectType": "application",
+  "tags": ["type:app", "platform:web"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/react-shell",
+        "webpackConfig": "apps/react-shell/webpack.config.js",
+        "index": "apps/react-shell/index.html",
+        "main": "apps/react-shell/src/main.tsx",
+        "tsConfig": "apps/react-shell/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "react-shell:build",
+        "port": 3000
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "react-shell:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-shell/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

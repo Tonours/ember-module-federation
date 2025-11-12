@@ -1,0 +1,62 @@
+<div class="blog-container">
+  <header class="blog-header">
+    {{#if this.model.tag}}
+      <div class="tag-header-badge">
+        {{this.model.tag.name}}
+      </div>
+      <h1>Articles - {{this.model.tag.name}}</h1>
+      <p>Filtrage par tag via Ember 6 (Module Federation + React Router)</p>
+    {{else}}
+      <h1>Tag introuvable</h1>
+    {{/if}}
+  </header>
+
+  <div class="blog-actions">
+    <button type="button" class="back-link" {{on "click" this.navigateToBlog}}>
+      ← Retour à tous les articles
+    </button>
+  </div>
+
+  <div class="articles-grid">
+    {{#each this.model.articles as |post|}}
+      <article class="article-card" {{on "click" (fn this.navigateToArticle post.id)}}>
+        <div class="article-date">
+          {{post.formattedDate}}
+        </div>
+        <h2 class="article-title">{{post.title}}</h2>
+        {{#if post.category}}
+          <div class="article-meta">
+            <span
+              class="badge-category badge-category-link"
+              style="background-color: {{post.category.color}}; cursor: pointer;"
+              role="button"
+              {{on "click" (fn this.navigateToCategory post.category.slug)}}
+            >
+              {{post.category.name}}
+            </span>
+            {{#each post.tags as |tag|}}
+              <span
+                class="badge-tag badge-tag-link"
+                style="cursor: pointer;"
+                role="button"
+                {{on "click" (fn this.navigateToTag tag.slug)}}
+              >
+                {{tag.name}}
+              </span>
+            {{/each}}
+          </div>
+        {{/if}}
+        <p class="article-excerpt">
+          {{post.excerpt}}
+        </p>
+        <div class="article-footer">
+          <span class="read-more">Lire l'article →</span>
+        </div>
+      </article>
+    {{else}}
+      <div class="no-articles">
+        <p>Aucun article disponible pour ce tag.</p>
+      </div>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,988 @@
+{
+  "version": "6.0",
+  "nxVersion": "22.0.2",
+  "pathMappings": {
+    "@packages/ui": [
+      "./packages/ui/src"
+    ],
+    "@packages/ui/*": [
+      "./packages/ui/src/*"
+    ],
+    "@packages/data": [
+      "./packages/data/src"
+    ],
+    "@packages/data/*": [
+      "./packages/data/src/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "pluginsConfig": {
+    "@nx/js": {
+      "analyzeSourceFiles": false
+    }
+  },
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "package-lock.json",
+        "hash": "3214787927983509418"
+      },
+      {
+        "file": "package.json",
+        "hash": "15711544983121013851"
+      },
+      {
+        "file": "INSTALLATION.md",
+        "hash": "16510610011557085695"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "2748873229976957216"
+      },
+      {
+        "file": "POC-PLAN.md",
+        "hash": "12484279763730162751"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "1941627381086055841"
+      },
+      {
+        "file": ".prettierrc.json",
+        "hash": "13217523883417903064"
+      },
+      {
+        "file": ".env.example",
+        "hash": "13225150573752881328"
+      },
+      {
+        "file": "DEPLOYMENT.md",
+        "hash": "10901689118609690413"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "2004470729619041284"
+      },
+      {
+        "file": "VITE_MF_CONFIG.md",
+        "hash": "14636011399132207914"
+      },
+      {
+        "file": "nx.json",
+        "hash": "4626825549080842695"
+      },
+      {
+        "file": ".dockerignore",
+        "hash": "2946667190003146982"
+      },
+      {
+        "file": "README.md",
+        "hash": "2051063651225009604"
+      }
+    ],
+    "projectFileMap": {
+      "react-shell": [
+        {
+          "file": "apps/react-shell/.env.example",
+          "hash": "6688927045133809220"
+        },
+        {
+          "file": "apps/react-shell/.gitignore",
+          "hash": "13046175384202504187"
+        },
+        {
+          "file": "apps/react-shell/Dockerfile",
+          "hash": "9702967140975102497"
+        },
+        {
+          "file": "apps/react-shell/README.md",
+          "hash": "6529887400882112953"
+        },
+        {
+          "file": "apps/react-shell/eslint.config.js",
+          "hash": "14300329805392084141"
+        },
+        {
+          "file": "apps/react-shell/index.html",
+          "hash": "310865845086589106"
+        },
+        {
+          "file": "apps/react-shell/nginx.conf",
+          "hash": "5808231369186485882"
+        },
+        {
+          "file": "apps/react-shell/package.json",
+          "hash": "3128530421386474706",
+          "deps": [
+            "npm:@babel/core",
+            "npm:@babel/preset-react",
+            "npm:@babel/preset-typescript",
+            "npm:@eslint/js",
+            "npm:@module-federation/enhanced",
+            "npm:@tailwindcss/postcss",
+            "npm:@types/node@24.10.0",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:babel-loader",
+            "npm:css-loader@7.1.2",
+            "npm:dotenv",
+            "npm:eslint@9.39.1",
+            "npm:eslint-plugin-react-hooks",
+            "npm:eslint-plugin-react-refresh",
+            "npm:globals",
+            "npm:html-webpack-plugin",
+            "npm:mini-css-extract-plugin@2.9.4",
+            "npm:postcss",
+            "npm:postcss-loader@8.2.0",
+            "npm:style-loader@4.0.0",
+            "npm:tailwindcss",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:webpack",
+            "npm:webpack-cli",
+            "npm:webpack-dev-server",
+            "data",
+            "ui",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "apps/react-shell/postcss.config.mjs",
+          "hash": "7016931819030440796"
+        },
+        {
+          "file": "apps/react-shell/project.json",
+          "hash": "7132973023881706128"
+        },
+        {
+          "file": "apps/react-shell/public/vite.svg",
+          "hash": "16046085400642193116"
+        },
+        {
+          "file": "apps/react-shell/src/App.css",
+          "hash": "3739391659270974612"
+        },
+        {
+          "file": "apps/react-shell/src/App.tsx",
+          "hash": "4440854664289924766"
+        },
+        {
+          "file": "apps/react-shell/src/assets/react.svg",
+          "hash": "16069471864800376455"
+        },
+        {
+          "file": "apps/react-shell/src/bootstrap.tsx",
+          "hash": "9019293163517054487"
+        },
+        {
+          "file": "apps/react-shell/src/components/BlogArticleWrapper.tsx",
+          "hash": "16888758871838763802"
+        },
+        {
+          "file": "apps/react-shell/src/components/EmberBlogApp.tsx",
+          "hash": "2966931742366368087"
+        },
+        {
+          "file": "apps/react-shell/src/components/EmberBlogCategoryWrapper.tsx",
+          "hash": "13978860908094009055"
+        },
+        {
+          "file": "apps/react-shell/src/components/EmberBlogTagWrapper.tsx",
+          "hash": "6230105519514495451"
+        },
+        {
+          "file": "apps/react-shell/src/components/ErrorBoundary.tsx",
+          "hash": "11728454733227702715"
+        },
+        {
+          "file": "apps/react-shell/src/components/ProfileWrapper.tsx",
+          "hash": "6415167645066304609"
+        },
+        {
+          "file": "apps/react-shell/src/components/ProtectedRoute.tsx",
+          "hash": "10989323149275779975"
+        },
+        {
+          "file": "apps/react-shell/src/contexts/AuthContext.tsx",
+          "hash": "16461032527141137380"
+        },
+        {
+          "file": "apps/react-shell/src/emberBlogRemote.js",
+          "hash": "358203233098243519"
+        },
+        {
+          "file": "apps/react-shell/src/index.css",
+          "hash": "6103688205912612346"
+        },
+        {
+          "file": "apps/react-shell/src/layouts/MainLayout.tsx",
+          "hash": "13403202938585539375"
+        },
+        {
+          "file": "apps/react-shell/src/main.tsx",
+          "hash": "1054774832669581601"
+        },
+        {
+          "file": "apps/react-shell/src/pages/Home.tsx",
+          "hash": "10075195455944416314"
+        },
+        {
+          "file": "apps/react-shell/src/pages/Login.tsx",
+          "hash": "2012708182892524668"
+        },
+        {
+          "file": "apps/react-shell/src/pages/Register.tsx",
+          "hash": "5472498038694144365"
+        },
+        {
+          "file": "apps/react-shell/src/services/authService.ts",
+          "hash": "11129476082817331620"
+        },
+        {
+          "file": "apps/react-shell/src/vite-env.d.ts",
+          "hash": "16587804993925053438"
+        },
+        {
+          "file": "apps/react-shell/tsconfig.app.json",
+          "hash": "6327131411799751916"
+        },
+        {
+          "file": "apps/react-shell/tsconfig.json",
+          "hash": "2365188958523842680"
+        },
+        {
+          "file": "apps/react-shell/tsconfig.node.json",
+          "hash": "11862655124761714159"
+        },
+        {
+          "file": "apps/react-shell/webpack.config.js",
+          "hash": "4026661980873568270"
+        }
+      ],
+      "mf-blog-article": [
+        {
+          "file": "apps/mf-blog-article/.env.example",
+          "hash": "12660119562435313033"
+        },
+        {
+          "file": "apps/mf-blog-article/.gitignore",
+          "hash": "13046175384202504187"
+        },
+        {
+          "file": "apps/mf-blog-article/Dockerfile",
+          "hash": "12129758301097812038"
+        },
+        {
+          "file": "apps/mf-blog-article/README.md",
+          "hash": "6529887400882112953"
+        },
+        {
+          "file": "apps/mf-blog-article/eslint.config.js",
+          "hash": "14300329805392084141"
+        },
+        {
+          "file": "apps/mf-blog-article/index.html",
+          "hash": "10224526447969343493"
+        },
+        {
+          "file": "apps/mf-blog-article/nginx.conf",
+          "hash": "2983634015358801672"
+        },
+        {
+          "file": "apps/mf-blog-article/package.json",
+          "hash": "8426477476486544987",
+          "deps": [
+            "npm:@babel/core",
+            "npm:@babel/preset-react",
+            "npm:@babel/preset-typescript",
+            "npm:@eslint/js",
+            "npm:@module-federation/enhanced",
+            "npm:@tailwindcss/postcss",
+            "npm:@types/node@24.10.0",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:autoprefixer",
+            "npm:babel-loader",
+            "npm:css-loader",
+            "npm:eslint@9.39.1",
+            "npm:eslint-plugin-react-hooks",
+            "npm:eslint-plugin-react-refresh",
+            "npm:globals",
+            "npm:html-webpack-plugin",
+            "npm:mini-css-extract-plugin@2.9.4",
+            "npm:postcss",
+            "npm:postcss-loader@8.2.0",
+            "npm:style-loader",
+            "npm:tailwindcss",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:webpack",
+            "npm:webpack-cli",
+            "npm:webpack-dev-server",
+            "data",
+            "ui",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "apps/mf-blog-article/postcss.config.mjs",
+          "hash": "7016931819030440796"
+        },
+        {
+          "file": "apps/mf-blog-article/project.json",
+          "hash": "11278950626819717028"
+        },
+        {
+          "file": "apps/mf-blog-article/public/vite.svg",
+          "hash": "16046085400642193116"
+        },
+        {
+          "file": "apps/mf-blog-article/src/App.css",
+          "hash": "3739391659270974612"
+        },
+        {
+          "file": "apps/mf-blog-article/src/App.tsx",
+          "hash": "8521248248046387250"
+        },
+        {
+          "file": "apps/mf-blog-article/src/EditArticle.tsx",
+          "hash": "3521121208466661012"
+        },
+        {
+          "file": "apps/mf-blog-article/src/assets/react.svg",
+          "hash": "16069471864800376455"
+        },
+        {
+          "file": "apps/mf-blog-article/src/index.css",
+          "hash": "1650140501592183580"
+        },
+        {
+          "file": "apps/mf-blog-article/src/main.tsx",
+          "hash": "9615797082495263702"
+        },
+        {
+          "file": "apps/mf-blog-article/tsconfig.app.json",
+          "hash": "6327131411799751916"
+        },
+        {
+          "file": "apps/mf-blog-article/tsconfig.json",
+          "hash": "2365188958523842680"
+        },
+        {
+          "file": "apps/mf-blog-article/tsconfig.node.json",
+          "hash": "11862655124761714159"
+        },
+        {
+          "file": "apps/mf-blog-article/webpack.config.js",
+          "hash": "3804985943413803682"
+        }
+      ],
+      "ui": [
+        {
+          "file": "packages/ui/package.json",
+          "hash": "4232698681834445258",
+          "deps": [
+            "npm:react",
+            "npm:react-dom",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:typescript",
+            "npm:clsx"
+          ]
+        },
+        {
+          "file": "packages/ui/postcss.config.mjs",
+          "hash": "7016931819030440796"
+        },
+        {
+          "file": "packages/ui/project.json",
+          "hash": "3251485811126380950"
+        },
+        {
+          "file": "packages/ui/src/components/Button.tsx",
+          "hash": "10891726162009403285"
+        },
+        {
+          "file": "packages/ui/src/components/Card.tsx",
+          "hash": "10083795662302220901"
+        },
+        {
+          "file": "packages/ui/src/components/Spinner.tsx",
+          "hash": "13690278150496494109"
+        },
+        {
+          "file": "packages/ui/src/index.ts",
+          "hash": "10921444289263478069"
+        },
+        {
+          "file": "packages/ui/src/styles.css",
+          "hash": "2791561053614310140"
+        },
+        {
+          "file": "packages/ui/tsconfig.json",
+          "hash": "9022423379885767825"
+        }
+      ],
+      "api": [
+        {
+          "file": "apps/api/.env.example",
+          "hash": "6853204042286852127"
+        },
+        {
+          "file": "apps/api/.gitignore",
+          "hash": "17333818724831616098"
+        },
+        {
+          "file": "apps/api/Dockerfile",
+          "hash": "13550659377122416765"
+        },
+        {
+          "file": "apps/api/nginx.conf",
+          "hash": "17775372146100062926"
+        },
+        {
+          "file": "apps/api/package.json",
+          "hash": "6482659040803637068",
+          "deps": [
+            "npm:@types/bcryptjs",
+            "npm:@types/cookie-parser",
+            "npm:@types/cors",
+            "npm:@types/express",
+            "npm:@types/jsonwebtoken",
+            "npm:@types/node",
+            "npm:prisma",
+            "npm:tsx",
+            "npm:typescript",
+            "npm:@prisma/client",
+            "npm:bcryptjs",
+            "npm:cookie-parser",
+            "npm:cors",
+            "npm:express",
+            "npm:jsonwebtoken",
+            "npm:zod"
+          ]
+        },
+        {
+          "file": "apps/api/prisma/schema.prisma",
+          "hash": "18356654310499423275"
+        },
+        {
+          "file": "apps/api/prisma/seed.ts",
+          "hash": "17450773267098373687"
+        },
+        {
+          "file": "apps/api/project.json",
+          "hash": "2754858474167962320"
+        },
+        {
+          "file": "apps/api/scripts/setup-db.cjs",
+          "hash": "5341390445481856451"
+        },
+        {
+          "file": "apps/api/src/config/env.ts",
+          "hash": "14513375404975149273"
+        },
+        {
+          "file": "apps/api/src/controllers/articles.controller.ts",
+          "hash": "13649133248350640018"
+        },
+        {
+          "file": "apps/api/src/controllers/auth.controller.ts",
+          "hash": "12611502266968459438"
+        },
+        {
+          "file": "apps/api/src/controllers/categories.controller.ts",
+          "hash": "15787385649921124384"
+        },
+        {
+          "file": "apps/api/src/controllers/tags.controller.ts",
+          "hash": "13517236137250081100"
+        },
+        {
+          "file": "apps/api/src/controllers/user.controller.ts",
+          "hash": "1502296555046054642"
+        },
+        {
+          "file": "apps/api/src/index.ts",
+          "hash": "18349004100585783850"
+        },
+        {
+          "file": "apps/api/src/middleware/auth.ts",
+          "hash": "17235115417531464593"
+        },
+        {
+          "file": "apps/api/src/routes/articles.routes.ts",
+          "hash": "10909055750549056646"
+        },
+        {
+          "file": "apps/api/src/routes/auth.routes.ts",
+          "hash": "13385081207906473981"
+        },
+        {
+          "file": "apps/api/src/routes/categories.routes.ts",
+          "hash": "8577442064232432255"
+        },
+        {
+          "file": "apps/api/src/routes/tags.routes.ts",
+          "hash": "1453057919323548278"
+        },
+        {
+          "file": "apps/api/src/routes/user.routes.ts",
+          "hash": "13460028320826922343"
+        },
+        {
+          "file": "apps/api/start.sh",
+          "hash": "10713255019864351554"
+        },
+        {
+          "file": "apps/api/tsconfig.docker.json",
+          "hash": "8863955196380357502"
+        },
+        {
+          "file": "apps/api/tsconfig.json",
+          "hash": "7911056585415946733"
+        },
+        {
+          "file": "apps/api/types/broccoli-plugin.d.ts",
+          "hash": "17685496798774726630"
+        }
+      ],
+      "ember-app": [
+        {
+          "file": "apps/ember-app/.__mf__temp/emberBlog/localSharedImportMap.js",
+          "hash": "10738837941464529877"
+        },
+        {
+          "file": "apps/ember-app/.editorconfig",
+          "hash": "9807160686404276401"
+        },
+        {
+          "file": "apps/ember-app/.github/workflows/ci.yml",
+          "hash": "5886535233552605586"
+        },
+        {
+          "file": "apps/ember-app/.gitignore",
+          "hash": "5822350210514306770"
+        },
+        {
+          "file": "apps/ember-app/.prettierignore",
+          "hash": "11825048237164135155"
+        },
+        {
+          "file": "apps/ember-app/.prettierrc.mjs",
+          "hash": "13268049783172810686"
+        },
+        {
+          "file": "apps/ember-app/.stylelintignore",
+          "hash": "5520532332426178514"
+        },
+        {
+          "file": "apps/ember-app/.stylelintrc.cjs",
+          "hash": "14347958445373641453"
+        },
+        {
+          "file": "apps/ember-app/.template-lintrc.mjs",
+          "hash": "1762453567346026106"
+        },
+        {
+          "file": "apps/ember-app/.watchmanconfig",
+          "hash": "5071571864324968392"
+        },
+        {
+          "file": "apps/ember-app/Dockerfile",
+          "hash": "15234410158207490459"
+        },
+        {
+          "file": "apps/ember-app/README.md",
+          "hash": "9651692199842261323"
+        },
+        {
+          "file": "apps/ember-app/app/app.js",
+          "hash": "227627322054944332"
+        },
+        {
+          "file": "apps/ember-app/app/components/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/app/config/environment.js",
+          "hash": "7293078067718519008"
+        },
+        {
+          "file": "apps/ember-app/app/controllers/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/app/controllers/category.js",
+          "hash": "1454950546790679515"
+        },
+        {
+          "file": "apps/ember-app/app/controllers/index.js",
+          "hash": "7015465759143838195"
+        },
+        {
+          "file": "apps/ember-app/app/controllers/tag.js",
+          "hash": "17928714658092555591"
+        },
+        {
+          "file": "apps/ember-app/app/deprecation-workflow.js",
+          "hash": "3949224807707608147"
+        },
+        {
+          "file": "apps/ember-app/app/helpers/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/app/models/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/app/modifiers/select-value.js",
+          "hash": "9124209578372069895"
+        },
+        {
+          "file": "apps/ember-app/app/mount.js",
+          "hash": "9013621232022164748"
+        },
+        {
+          "file": "apps/ember-app/app/router.js",
+          "hash": "3885901501760797827"
+        },
+        {
+          "file": "apps/ember-app/app/routes/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/app/routes/category.js",
+          "hash": "1859336288742670118"
+        },
+        {
+          "file": "apps/ember-app/app/routes/index.js",
+          "hash": "1106113887656437472"
+        },
+        {
+          "file": "apps/ember-app/app/routes/tag.js",
+          "hash": "10242955166471276260"
+        },
+        {
+          "file": "apps/ember-app/app/services/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/app/services/navigation.js",
+          "hash": "11947310102312324928"
+        },
+        {
+          "file": "apps/ember-app/app/styles/app.css",
+          "hash": "13204530432131856178"
+        },
+        {
+          "file": "apps/ember-app/app/templates/application.gjs",
+          "hash": "3328650411491384510"
+        },
+        {
+          "file": "apps/ember-app/app/templates/category.hbs",
+          "hash": "17706294891471929039"
+        },
+        {
+          "file": "apps/ember-app/app/templates/index.hbs",
+          "hash": "1277793257488094563"
+        },
+        {
+          "file": "apps/ember-app/app/templates/tag.hbs",
+          "hash": "16785368557364729611"
+        },
+        {
+          "file": "apps/ember-app/babel.config.cjs",
+          "hash": "11322665074916593068"
+        },
+        {
+          "file": "apps/ember-app/config/ember-cli-update.json",
+          "hash": "12409523058025627575"
+        },
+        {
+          "file": "apps/ember-app/config/environment.js",
+          "hash": "507371292028797794"
+        },
+        {
+          "file": "apps/ember-app/config/optional-features.json",
+          "hash": "16324450662670885747"
+        },
+        {
+          "file": "apps/ember-app/config/targets.js",
+          "hash": "4035800623784429899"
+        },
+        {
+          "file": "apps/ember-app/ember-cli-build.js",
+          "hash": "4724207412021640379"
+        },
+        {
+          "file": "apps/ember-app/eslint.config.mjs",
+          "hash": "8996618666871000712"
+        },
+        {
+          "file": "apps/ember-app/index.html",
+          "hash": "6517098656550575191"
+        },
+        {
+          "file": "apps/ember-app/nginx.conf",
+          "hash": "3708972908691023017"
+        },
+        {
+          "file": "apps/ember-app/package.json",
+          "hash": "2977439501506734314",
+          "deps": [
+            "npm:@babel/core",
+            "npm:@babel/runtime",
+            "npm:@babel/plugin-transform-runtime",
+            "npm:@babel/eslint-parser",
+            "npm:@ember/optional-features",
+            "npm:@ember/string",
+            "npm:@ember/test-helpers",
+            "npm:@ember/test-waiters",
+            "npm:@embroider/macros",
+            "npm:@embroider/core",
+            "npm:@embroider/vite",
+            "npm:@embroider/compat",
+            "npm:@embroider/router",
+            "npm:@embroider/config-meta-loader",
+            "npm:@embroider/legacy-inspector-support",
+            "npm:@eslint/js",
+            "npm:@glimmer/component",
+            "npm:@rollup/plugin-babel",
+            "npm:@warp-drive/ember",
+            "npm:babel-plugin-ember-template-compilation",
+            "npm:concurrently@9.2.1",
+            "npm:decorator-transforms",
+            "npm:ember-auto-import",
+            "npm:ember-cli",
+            "npm:ember-cli-babel",
+            "npm:ember-cli-deprecation-workflow",
+            "npm:ember-data",
+            "npm:ember-load-initializers",
+            "npm:ember-modifier",
+            "npm:ember-page-title",
+            "npm:ember-qunit",
+            "npm:ember-resolver",
+            "npm:ember-source",
+            "npm:ember-template-lint",
+            "npm:eslint@9.39.1",
+            "npm:eslint-config-prettier",
+            "npm:eslint-plugin-ember",
+            "npm:eslint-plugin-n",
+            "npm:eslint-plugin-qunit",
+            "npm:globals",
+            "npm:prettier",
+            "npm:prettier-plugin-ember-template-tag",
+            "npm:qunit",
+            "npm:qunit-dom",
+            "npm:stylelint",
+            "npm:stylelint-config-standard",
+            "npm:testem",
+            "npm:tracked-built-ins",
+            "npm:vite",
+            "npm:@module-federation/vite"
+          ]
+        },
+        {
+          "file": "apps/ember-app/project.json",
+          "hash": "13357263228519958303"
+        },
+        {
+          "file": "apps/ember-app/public/robots.txt",
+          "hash": "10975956285117517672"
+        },
+        {
+          "file": "apps/ember-app/testem.cjs",
+          "hash": "7488489286276554584"
+        },
+        {
+          "file": "apps/ember-app/tests/helpers/index.js",
+          "hash": "2633822807053323027"
+        },
+        {
+          "file": "apps/ember-app/tests/index.html",
+          "hash": "2483594620746846484"
+        },
+        {
+          "file": "apps/ember-app/tests/integration/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/tests/test-helper.js",
+          "hash": "17624257148636988268"
+        },
+        {
+          "file": "apps/ember-app/tests/unit/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/ember-app/vite.config.mjs",
+          "hash": "6433294535296593504"
+        }
+      ],
+      "data": [
+        {
+          "file": "packages/data/package.json",
+          "hash": "5041525103561157455",
+          "deps": [
+            "npm:@types/node",
+            "npm:typescript"
+          ]
+        },
+        {
+          "file": "packages/data/project.json",
+          "hash": "4664554678715032331"
+        },
+        {
+          "file": "packages/data/src/api/articles.ts",
+          "hash": "1260959614242127067"
+        },
+        {
+          "file": "packages/data/src/api/auth.ts",
+          "hash": "12133378910955579538"
+        },
+        {
+          "file": "packages/data/src/api/client.ts",
+          "hash": "3851586228111182673"
+        },
+        {
+          "file": "packages/data/src/index.ts",
+          "hash": "4935285041242358496"
+        },
+        {
+          "file": "packages/data/src/types/article.ts",
+          "hash": "15960454113224819827"
+        },
+        {
+          "file": "packages/data/src/types/auth.ts",
+          "hash": "16213467112412940836"
+        },
+        {
+          "file": "packages/data/src/types/jsonapi.ts",
+          "hash": "15573193041096376161"
+        },
+        {
+          "file": "packages/data/tsconfig.json",
+          "hash": "14424979643641486842"
+        }
+      ],
+      "mf-profile": [
+        {
+          "file": "apps/mf-profile/.gitignore",
+          "hash": "13046175384202504187"
+        },
+        {
+          "file": "apps/mf-profile/Dockerfile",
+          "hash": "9163883651625414948"
+        },
+        {
+          "file": "apps/mf-profile/README.md",
+          "hash": "6529887400882112953"
+        },
+        {
+          "file": "apps/mf-profile/eslint.config.js",
+          "hash": "14300329805392084141"
+        },
+        {
+          "file": "apps/mf-profile/index.html",
+          "hash": "4917124795526939056"
+        },
+        {
+          "file": "apps/mf-profile/nginx.conf",
+          "hash": "6791095332637267974"
+        },
+        {
+          "file": "apps/mf-profile/package.json",
+          "hash": "9529840903707127846",
+          "deps": [
+            "npm:@babel/core",
+            "npm:@babel/preset-react",
+            "npm:@babel/preset-typescript",
+            "npm:@eslint/js",
+            "npm:@module-federation/enhanced",
+            "npm:@tailwindcss/postcss",
+            "npm:@types/node@24.10.0",
+            "npm:@types/react",
+            "npm:@types/react-dom",
+            "npm:autoprefixer",
+            "npm:babel-loader",
+            "npm:css-loader",
+            "npm:eslint@9.39.1",
+            "npm:eslint-plugin-react-hooks",
+            "npm:eslint-plugin-react-refresh",
+            "npm:globals",
+            "npm:html-webpack-plugin",
+            "npm:mini-css-extract-plugin@2.9.4",
+            "npm:postcss",
+            "npm:postcss-loader@8.2.0",
+            "npm:style-loader",
+            "npm:typescript",
+            "npm:typescript-eslint",
+            "npm:webpack",
+            "npm:webpack-cli",
+            "npm:webpack-dev-server",
+            "data",
+            "ui",
+            "npm:react",
+            "npm:react-dom",
+            "npm:react-router"
+          ]
+        },
+        {
+          "file": "apps/mf-profile/postcss.config.mjs",
+          "hash": "7016931819030440796"
+        },
+        {
+          "file": "apps/mf-profile/project.json",
+          "hash": "9965508986134992538"
+        },
+        {
+          "file": "apps/mf-profile/public/vite.svg",
+          "hash": "16046085400642193116"
+        },
+        {
+          "file": "apps/mf-profile/src/App.css",
+          "hash": "3739391659270974612"
+        },
+        {
+          "file": "apps/mf-profile/src/App.tsx",
+          "hash": "18266610694301444263"
+        },
+        {
+          "file": "apps/mf-profile/src/assets/react.svg",
+          "hash": "16069471864800376455"
+        },
+        {
+          "file": "apps/mf-profile/src/index.css",
+          "hash": "1650140501592183580"
+        },
+        {
+          "file": "apps/mf-profile/src/main.tsx",
+          "hash": "3825180883946386055"
+        },
+        {
+          "file": "apps/mf-profile/tsconfig.app.json",
+          "hash": "6327131411799751916"
+        },
+        {
+          "file": "apps/mf-profile/tsconfig.json",
+          "hash": "2365188958523842680"
+        },
+        {
+          "file": "apps/mf-profile/tsconfig.node.json",
+          "hash": "11862655124761714159"
+        },
+        {
+          "file": "apps/mf-profile/webpack.config.js",
+          "hash": "9141313005941212363"
+        }
+      ]
+    }
+  },
+  "externalNodesHash": "806015432763780905"
+}

@@ -1,0 +1,97 @@
+<div class="blog-container">
+  <header class="blog-header">
+    <h1>Blog Articles</h1>
+    <p>Découvrez nos derniers articles sur Module Federation et les
+      micro-frontends</p>
+  </header>
+
+  <div class="blog-filters">
+    <div class="filter-group">
+      <label for="category-filter">Catégorie:</label>
+      <select
+        id="category-filter"
+        {{select-value this.selectedCategory}}
+        {{on "change" this.filterByCategory}}
+      >
+        <option value="">Toutes</option>
+        {{#each this.model.categories as |cat|}}
+          <option value={{cat.slug}}>
+            {{cat.name}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="tag-filter">Tag:</label>
+      <select
+        id="tag-filter"
+        {{select-value this.selectedTag}}
+        {{on "change" this.filterByTag}}
+      >
+        <option value="">Tous</option>
+        {{#each this.model.tags as |tag|}}
+          <option value={{tag.slug}}>
+            {{tag.name}}
+          </option>
+        {{/each}}
+      </select>
+    </div>
+
+    {{#if this.hasActiveFilters}}
+      <button
+        type="button"
+        class="clear-filters-btn"
+        {{on "click" this.clearFilters}}
+      >
+        Effacer les filtres
+      </button>
+    {{/if}}
+  </div>
+
+  <div class="articles-grid">
+    {{#each this.model.articles as |post|}}
+      <article class="article-card" {{on "click" (fn this.navigateToArticle post.id)}}>
+        <div class="article-date">
+          {{post.formattedDate}}
+        </div>
+        <h2 class="article-title">{{post.title}}</h2>
+        {{#if post.category}}
+          <div class="article-meta">
+            <LinkTo @route="blog.category" @model={{post.category.slug}} class="badge-category-link">
+              <span
+                class="badge-category"
+                style="background-color: {{post.category.color}};"
+              >
+                {{post.category.name}}
+              </span>
+            </LinkTo>
+            {{#each post.tags as |tag|}}
+              <LinkTo @route="blog.tag" @model={{tag.slug}} class="badge-tag-link">
+                <span class="badge-tag">{{tag.name}}</span>
+              </LinkTo>
+            {{/each}}
+          </div>
+        {{/if}}
+        <p class="article-excerpt">
+          {{post.excerpt}}
+        </p>
+        <div class="article-footer">
+          <span class="read-more">Lire l'article →</span>
+        </div>
+      </article>
+    {{else}}
+      <div class="no-articles">
+        <p>Aucun article disponible pour le moment.</p>
+      </div>
+    {{/each}}
+  </div>
+
+  <div class="info-banner">
+    <p>
+      <strong>🔧 POC Legacy:</strong>
+      Ember 4 + Broccoli intégré via iframe (approche classique sans Module Federation).
+      Navigation cross-framework via postMessage. Articles → MFE React.
+    </p>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+{
+  "name": "mf-blog-article",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/mf-blog-article/src",
+  "projectType": "application",
+  "tags": ["type:remote", "platform:web"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/mf-blog-article",
+        "webpackConfig": "apps/mf-blog-article/webpack.config.js",
+        "index": "apps/mf-blog-article/index.html",
+        "main": "apps/mf-blog-article/src/main.tsx",
+        "tsConfig": "apps/mf-blog-article/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "options": {
+        "buildTarget": "mf-blog-article:build",
+        "port": 3002
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "mf-blog-article:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/mf-blog-article/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "ember",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/ember/app",
+  "projectType": "application",
+  "tags": ["type:app", "platform:web", "framework:ember"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/apps/ember"],
+      "options": {
+        "command": "ember build --output-path=../../dist/apps/ember",
+        "cwd": "apps/ember"
+      },
+      "configurations": {
+        "production": {
+          "command": "ember build --environment=production --output-path=../../dist/apps/ember",
+          "cwd": "apps/ember"
+        }
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ember serve --port=4200",
+        "cwd": "apps/ember"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ember test",
+        "cwd": "apps/ember"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm run lint",
+        "cwd": "apps/ember"
+      }
+    }
+  }
+}
